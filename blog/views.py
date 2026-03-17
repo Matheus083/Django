@@ -1,8 +1,23 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 # Create your views here.
-def index(request):
-    print('MY_VIEW')
-    return HttpResponse('MY_VIEW')
+def blog(request):
+    context = {'text': 'Hello! We are in the BLOG.'}
+    return render(
+        request,
+        'blog/index.html',
+        context
+    )
 
+
+def example(request):
+    context = {
+        'text': 'Hello! We are in the EXAMPLE.', 
+        'title': 'You are my page.'
+                      }
+    return render(
+        request,
+        'blog/example.html',
+        context
+    )
